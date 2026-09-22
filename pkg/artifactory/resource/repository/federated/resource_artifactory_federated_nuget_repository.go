@@ -30,6 +30,7 @@ type NugetFederatedRepositoryParams struct {
 	RepoParams
 }
 
+// unpackLocalNugetRepository extracts NuGet-specific repository params from Terraform resource data.
 func unpackLocalNugetRepository(data *schema.ResourceData, Rclass string) local.NugetLocalRepositoryParams {
 	d := &utilsdk.ResourceData{ResourceData: data}
 	return local.NugetLocalRepositoryParams{

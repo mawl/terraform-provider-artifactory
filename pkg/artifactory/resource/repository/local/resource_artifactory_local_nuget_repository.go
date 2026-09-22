@@ -90,6 +90,7 @@ func (r LocalNugetResourceModel) SetUpdateResourceStateData(ctx context.Context,
 	resp.Diagnostics.Append(resp.State.Set(ctx, &r)...)
 }
 
+// ToAPIModel converts the Terraform resource model into the Artifactory API model.
 func (r LocalNugetResourceModel) ToAPIModel(ctx context.Context, packageType string) (interface{}, diag.Diagnostics) {
 	diags := diag.Diagnostics{}
 
@@ -109,6 +110,7 @@ func (r LocalNugetResourceModel) ToAPIModel(ctx context.Context, packageType str
 	}, diags
 }
 
+// FromAPIModel populates the Terraform resource model from the Artifactory API model.
 func (r *LocalNugetResourceModel) FromAPIModel(ctx context.Context, apiModel interface{}) diag.Diagnostics {
 	diags := diag.Diagnostics{}
 
@@ -131,6 +133,7 @@ type LocalNugetAPIModel struct {
 	EnableNormalizedVersion  bool  `json:"enableNormalizedVersion"`
 }
 
+// Schema defines the Terraform schema for the local NuGet repository resource.
 func (r *localNugetResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	attributes := lo.Assign(
 		LocalAttributes,

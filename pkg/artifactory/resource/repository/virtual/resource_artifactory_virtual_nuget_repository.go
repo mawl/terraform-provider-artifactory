@@ -43,6 +43,7 @@ var nugetSchema = lo.Assign(
 
 var NugetSchemas = GetSchemas(nugetSchema)
 
+// ResourceArtifactoryVirtualNugetRepository returns the SDKv2 resource for the virtual NuGet repository.
 func ResourceArtifactoryVirtualNugetRepository() *schema.Resource {
 
 	type NugetVirtualRepositoryParams struct {
